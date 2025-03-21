@@ -1,0 +1,36 @@
+																					Notes : 
+
+
+	Mathematical Concepts !
+
+	-1 The function : f(z) = z^2 + c  | <== We put inside it some imaginary number and
+		we re-enter the result of it into the same function , some value keep growing to infinity and
+			some of them they loop in the same numbers !
+				Those imaginary numbers that keep looping we can locate them on a refere orthonorme (repere orthonorme).
+					if we highlighted  the imaginary numbers that loop we get that fractol shape on the refere orthonorme !
+	
+	-2 We have to do this for all the pixels on the screen we locate the pixel and deduce it's place on the repere
+		and calculate it's result and highlighted it if it loops !
+
+
+
+	Algorythm :
+
+	-1 The Mandelbrot set is visualized by mapping each pixel on the screen to a corresponding complex number
+		then iterating the Mandelbrot formula to determine if the number "escapes" (goes to infinity) or
+			stays bounded, The iteration count is used to color the pixel
+
+
+
+
+	To Do : 
+
+	-1 OverFlows Handlig dZab !
+
+
+	
+	Questions : 
+
+	-1 what about that  * zoom how does it work !
+
+	-2 Why offset and shit 
