@@ -1,4 +1,4 @@
-CC = cc -Wall -Wextra -Werror  -g -fsanitize=address
+CC = cc -Wall -Wextra -Werror
 
 FLAGS = -lmlx -framework OpenGL -framework AppKit 
 
@@ -8,7 +8,8 @@ HLP = Helpers/Helpers.c \
 		Helpers/H_Parsing.c \
 		Helpers/Mandelbrot.c \
 		Helpers/Julia.c \
-		Helpers/h_event.c
+		Helpers/h_event.c \
+		Helpers/atoi.c
 
 H_OBJ = $(HLP:.c=.o)
 

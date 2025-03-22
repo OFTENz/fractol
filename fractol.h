@@ -6,18 +6,19 @@
 /*   By: sel-mir <sel-mir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 01:31:10 by sel-mir           #+#    #+#             */
-/*   Updated: 2025/03/20 14:14:42 by sel-mir          ###   ########.fr       */
+/*   Updated: 2025/03/22 05:07:28 by sel-mir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
+# include <limits.h>
 # include <unistd.h>
-# include <stdio.h>
 # include <mlx.h>
 # include <stdlib.h>
 # include <stdio.h>
+# include <float.h>
 
 typedef struct s_xnbr
 {
@@ -52,6 +53,7 @@ void			cplx_convert(int x, int y, t_unit *data, t_xnbr *nbr);
 void			*get_pxl_add(t_unit *data, int x, int y);
 void			julia_work(t_unit *data);
 void			engine(t_unit *data);
+void			error_float();
 
 int				mandelbrot(t_xnbr c);
 int				compare(char *str, char *original);
@@ -59,6 +61,11 @@ int				mouse_zoom(int button, int x, int y, t_unit *data);
 int				key_events(int key, t_unit *data);
 int				close_window(t_unit *data);
 int				julia( t_xnbr z, t_xnbr c);
+
+
+double			ft_atoi(char *str);
+double			fraction_part(char *str);
+
 
 # ifndef WIDTH
 #  define WIDTH 600

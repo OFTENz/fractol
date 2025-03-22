@@ -6,7 +6,7 @@
 /*   By: sel-mir <sel-mir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 07:01:00 by sel-mir           #+#    #+#             */
-/*   Updated: 2025/03/21 23:09:22 by sel-mir          ###   ########.fr       */
+/*   Updated: 2025/03/22 05:44:30 by sel-mir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ void	parsing(int ac, char **av, t_unit *data)
 	{
 		sanitize(av[2]);
 		sanitize(av[3]);
-		(*data).julia.real = atof(av[2]);
-		(*data).julia.imag = atof(av[3]);
+		(*data).julia.real = ft_atoi(av[2]);
+		(*data).julia.imag = ft_atoi(av[3]);
 		(*data).choice = 1;
 		data->zoom = 0.9;
 		data->offset.real = 0.0;
@@ -91,76 +91,3 @@ void	sanitize(char *str)
 		a++;
 	}
 }
-
-
-static int	ft_cmplt(int sign)
-{
-	if (sign == -1)
-		return (0);
-	return (-1);
-}
-
-int	ft_atoi(const char *str)
-{
-	int			a;
-	long long	res;
-	int			sign;
-	long long	d;
-
-	sign = 1;
-	res = 0;
-	a = 0;
-	while (str[a] == ' ' || (str[a] >= 9 && str[a] <= 13))
-		a++;
-	if (str[a] == '-' || str[a] == '+')
-	{
-		if (str[a] == '-')
-			sign *= -1;
-		a++;
-	}
-	while (str[a] <= '9' && str[a] >= '0')
-	{
-		d = res;
-		res = res * 10 + str[a++] - 48;
-		if ((res / 10 - (str[a] - 48)) != d)
-			return (ft_cmplt(sign));
-	}
-	return (res * sign);
-}
-
-
-// double ft_atof(const char *str)
-// {
-// 	double result = 0.0;
-// 	double fraction = 0.0;
-// 	double divisor = 10.0;
-// 	int sign = 1;
-    
-//     // Handle negative numbers
-//     if (*str == '-')
-//     {
-//         sign = -1;
-//         str++;
-//     }
-    
-//     // Convert integer part
-//     while (*str >= '0' && *str <= '9')
-//     {
-//         result = result * 10 + (*str - '0');
-//         str++;
-//     }
-
-//     // Convert fractional part if present
-//     if (*str == '.')
-//     {
-//         str++; // Skip the decimal point
-//         while (*str >= '0' && *str <= '9')
-//         {
-//             fraction += (*str - '0') / divisor;
-//             divisor *= 10;
-//             str++;
-//         }
-//     }
-
-//     return sign * (result + fraction);
-// }

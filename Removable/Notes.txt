@@ -34,3 +34,8 @@
 	-1 what about that  * zoom how does it work !
 
 	-2 Why offset and shit 
+
+handle empty string parametre julia
+handle space in julia param
+./fractol Julia "a" "g"
+./fractol Julia "====0.0" "0.0"
