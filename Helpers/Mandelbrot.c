@@ -6,7 +6,7 @@
 /*   By: sel-mir <sel-mir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 10:45:56 by sel-mir           #+#    #+#             */
-/*   Updated: 2025/03/20 14:15:13 by sel-mir          ###   ########.fr       */
+/*   Updated: 2025/03/23 12:15:32 by sel-mir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void	mandelbrot_work(t_unit *data)
 
 	x = -1;
 	nbr = malloc(sizeof(t_xnbr));
+	if (!nbr)
+		flush();
 	while (++x < 650)
 	{
 		y = -1;
@@ -37,6 +39,7 @@ void	mandelbrot_work(t_unit *data)
 		}
 	}
 	mlx_put_image_to_window((*data).mlx, (*data).mlx_window, (*data).img, 0, 0);
+	free(nbr);
 }
 
 //	This is the function that tranform a pixel to a Complex Number  !

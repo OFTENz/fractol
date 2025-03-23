@@ -6,7 +6,7 @@
 /*   By: sel-mir <sel-mir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 23:49:56 by sel-mir           #+#    #+#             */
-/*   Updated: 2025/03/20 14:14:48 by sel-mir          ###   ########.fr       */
+/*   Updated: 2025/03/23 11:11:49 by sel-mir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	julia_work(t_unit *data)
 
 	x = -1;
 	z = malloc(sizeof(t_xnbr));
+	if (!z)
+		flush();
 	while (++x < 650)
 	{
 		y = -1;
@@ -35,6 +37,7 @@ void	julia_work(t_unit *data)
 		}
 	}
 	mlx_put_image_to_window((*data).mlx, (*data).mlx_window, (*data).img, 0, 0);
+	free(z);
 }
 
 // Do the same but this time the z is derived from Coordinates 

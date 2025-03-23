@@ -6,7 +6,7 @@
 /*   By: sel-mir <sel-mir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 01:30:51 by sel-mir           #+#    #+#             */
-/*   Updated: 2025/03/22 06:06:45 by sel-mir          ###   ########.fr       */
+/*   Updated: 2025/03/23 13:23:48 by sel-mir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,8 @@ void	engine(t_unit *data)
 		julia_work(data);
 }
 
-void	leak(void)
-{
-	system("leaks fractol");
-}
-
 int	main(int ac, char **av)
 {
-	// atexit(leak);
 	t_unit	data;
 	t_unit	*hold;
 
@@ -38,6 +32,5 @@ int	main(int ac, char **av)
 	mlx_key_hook(data.mlx_window, key_events, &data);
 	mlx_hook(data.mlx_window, 17, 0, close_window, &data);
 	mlx_mouse_hook(data.mlx_window, mouse_zoom, &data);
-	// mlx_loop(data.mlx);
-	
+	mlx_loop(data.mlx);
 }

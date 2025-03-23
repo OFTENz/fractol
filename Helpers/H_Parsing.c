@@ -6,7 +6,7 @@
 /*   By: sel-mir <sel-mir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 07:01:00 by sel-mir           #+#    #+#             */
-/*   Updated: 2025/03/22 05:44:30 by sel-mir          ###   ########.fr       */
+/*   Updated: 2025/03/23 12:54:56 by sel-mir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 
 void	usage(void)
 {
-	write (1, "\nError : Usage ==> ./fractol \"Mandelbrot\" OR \" Julia\" 0 < num1 < 2 AND -2 < num1 < 0", 53);
+	write (1, "\nError : Usage ==> ./fractol \"Mandelbrot\" OR", 44);
+	write (1, "\" Julia\" 0 < num1 < 2 AND -2 < num1 < 0", 49);
 	exit(1);
 }
 
@@ -78,6 +79,9 @@ void	sanitize(char *str)
 
 	a = 0;
 	i = 0;
+	if (!str[0])
+		flush();
+	is_digit(str);
 	while (str[a])
 	{
 		if (str[a] == '.' && !i)
@@ -85,8 +89,9 @@ void	sanitize(char *str)
 			i++;
 			a++;
 		}
-		if ((!(str[a] <= '9' && str[a] >= '0') && i) || (str[a] == '.'
-				&& !i && !(str[a] <= '9' && str[a] >= '0')) || str[0] == '.')
+		if ((str[a] == '.' && i) || ((!(str[a] <= '9' && str[a] >= '0')
+					&&str[a] != '.' && str[a] != '-'))
+			|| str[0] == '.' )
 			flush();
 		a++;
 	}
