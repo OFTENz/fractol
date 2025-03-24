@@ -6,7 +6,7 @@
 /*   By: sel-mir <sel-mir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 07:01:00 by sel-mir           #+#    #+#             */
-/*   Updated: 2025/03/23 12:54:56 by sel-mir          ###   ########.fr       */
+/*   Updated: 2025/03/24 13:44:01 by sel-mir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void	parsing(int ac, char **av, t_unit *data)
 		data->zoom = 0.9;
 		data->offset.real = 0.0;
 		data->offset.imag = 0.0;
+		(*data).choice = 1;
 	}
 }
 
