@@ -6,7 +6,7 @@
 /*   By: sel-mir <sel-mir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 00:18:36 by sel-mir           #+#    #+#             */
-/*   Updated: 2025/03/23 20:09:15 by sel-mir          ###   ########.fr       */
+/*   Updated: 2025/04/06 11:11:16 by sel-mir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,13 +72,25 @@ double	fraction_part(char *str)
 void	is_digit(char *str)
 {
 	int	a;
+	int	o;
+	int	p;
 
 	a = 0;
+	o = 0;
+	p = 0;
 	while (str[a])
 	{
-		if (str[a] <= '9' && str[a] >= '0')
-			return ;
+		if (str[a] == '.' && !a)
+			usage();
+		if (str[a] == '.' && !p)
+		{
+			p++;
+			a++;
+		}
+		if ((str[a] == '.' && p))
+			usage();
+		if ((str[a] == '+' || str[a] == '-') && a)
+			usage();
 		a++;
 	}
-	flush();
 }

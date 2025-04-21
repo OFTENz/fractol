@@ -6,7 +6,7 @@
 /*   By: sel-mir <sel-mir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 07:01:00 by sel-mir           #+#    #+#             */
-/*   Updated: 2025/03/24 13:44:01 by sel-mir          ###   ########.fr       */
+/*   Updated: 2025/04/06 11:21:56 by sel-mir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 
 void	usage(void)
 {
-	write (1, "\nError : Usage ==> ./fractol \"Mandelbrot\" OR", 44);
-	write (1, "\" Julia\" 0 < num1 < 2 AND -2 < num1 < 0", 49);
+	write (1, "\nError : Usage ==> ./fractol \"Mandelbrot\" OR", 45);
+	write (1, "\" Julia\" 0 < num1 < 2 AND -2 < num1 < 0", 40);
 	exit(1);
 }
 
@@ -77,23 +77,12 @@ void	sanitize(char *str)
 {
 	int	a;
 	int	i;
+	int	o;
 
 	a = 0;
 	i = 0;
+	o = 0;
 	if (!str[0])
 		flush();
 	is_digit(str);
-	while (str[a])
-	{
-		if (str[a] == '.' && !i)
-		{
-			i++;
-			a++;
-		}
-		if ((str[a] == '.' && i) || ((!(str[a] <= '9' && str[a] >= '0')
-					&&str[a] != '.' && str[a] != '-'))
-			|| str[0] == '.' )
-			flush();
-		a++;
-	}
 }

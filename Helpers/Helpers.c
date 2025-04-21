@@ -6,7 +6,7 @@
 /*   By: sel-mir <sel-mir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 07:59:10 by sel-mir           #+#    #+#             */
-/*   Updated: 2025/03/23 12:41:57 by sel-mir          ###   ########.fr       */
+/*   Updated: 2025/04/06 09:37:20 by sel-mir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,18 @@ void	initiating(t_unit *core)
 		flush();
 	(*core).img = mlx_new_image((*core).mlx, 650, 650);
 	if (!(*core).img)
+	{
+		mlx_destroy_window((*core).mlx, (*core).mlx_window);
 		flush();
+	}
 	(*core).addr = mlx_get_data_addr((*core).img,
 			&(*core).bits_per_pixel, &(*core).line_length, &(*core).endian);
 	if (!(*core).addr)
+	{
+		mlx_destroy_window((*core).mlx, (*core).mlx_window);
+		mlx_destroy_image((*core).mlx, (*core).img);
 		flush();
+	}
 }
 
 //
